@@ -14,4 +14,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="msm">Municipalidad de San Miguel</string>
+    <string name="tenes">Tenés</string>
+    <string name="como_obtener_puntos">¿Cómo obtener más puntos?</string>
+    <string name="reciclar">Reciclar</string>
+    <string name="canjear_puntos">Canjear puntos</string>
+    <string name="localizacion_puntos_verdes">Localización de Puntos Verdes</string>
 </resources>
