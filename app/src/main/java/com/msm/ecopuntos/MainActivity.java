@@ -1,5 +1,6 @@
 package com.msm.ecopuntos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,9 +21,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Button btnReciclar;
+    private Button btnCerrarSesion;
+    private  Button btnCanjear;
+    private Button btnLocalizacionPuntosVerdes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,34 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        declararControles();
+        configurarControles();
+    }
+
+    public void declararControles(){
+        btnReciclar = (Button)findViewById(R.id.btnReciclar);
+        btnLocalizacionPuntosVerdes = (Button)findViewById(R.id.btnLocalizacionPuntosVerdes);
+
+    }
+
+    public void configurarControles(){
+        btnReciclar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarActivityReciclar();
+            }
+        });
+    }
+
+    private void lanzarActivityReciclar(){
+        Intent intent = new Intent(this, ReciclarActivity.class);
+        startActivity(intent);
+    }
+
+    public void lanzarActivityLocalizacionPuntosVerdes(){
+        Intent intent = new Intent(this, LocalizacionActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -85,19 +119,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*if (id == R.id.nav_home) {
+        if (id == R.id.nav_reciclar) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            lanzarActivityReciclar();
+        } else if (id == R.id.nav_cerraar_sesion) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_localizacion) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_canjear) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
