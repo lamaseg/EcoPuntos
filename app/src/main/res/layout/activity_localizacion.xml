@@ -14,6 +14,5 @@
         android:layout_weight="4"
         android:src="@drawable/corredor"
         />
-    <Text
-
+    
 </LinearLayout>
